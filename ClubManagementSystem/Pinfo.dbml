@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ClubDatabase" Class="PinfoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\ClubDatabase.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="ClubManagementSystem.Properties.Settings" SettingsPropertyName="ClubDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ProfileInfo" Member="ProfileInfos">
+    <Type Name="ProfileInfo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Rank" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Club" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ProfileInfo_Activity" Member="Activity" ThisKey="Id" OtherKey="Id" Type="Activity" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Activity" Member="Activities">
+    <Type Name="Activity">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Grade" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Activities" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Club" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ProfileInfo_Activity" Member="ProfileInfo" ThisKey="Id" OtherKey="Id" Type="ProfileInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClubTable" Member="ClubTables">
+    <Type Name="ClubTable">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="club" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
